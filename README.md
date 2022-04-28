@@ -62,6 +62,10 @@ The same can be done for models from other frameworks.
 
 The results of the tuning process can be found in the _logs_ folder.
 
+You can use _LP_autoTVM.py_ to optimize a model and compare the optimized/unoptimized execution times on the TVM runtime.
+You only need to insert the path to the .pb of the model and the path to a test image. Pay attention to preprocess the 
+image in the correct way. Remember that the performances are on the TVM runtime!
+
 ## Results
 
 These are the results of the benchmarking of different models. All the models are pretrained _.onnx_ versions.
