@@ -58,10 +58,7 @@ wget https://github.com/onnx/models/raw/main/vision/classification/resnet/model/
 ```
 and then placed in the _models_ folder. 
 
-The same can be done for the onnx pretrained mobilenet, using this command
-```console
-wget https://github.com/onnx/models/raw/main/vision/classification/mobilenet/model/mobilenetv2-7.onnx
-```
+The same can be done for models from other frameworks.
 
 The results of the tuning process can be found in the _logs_ folder.
 
@@ -86,15 +83,21 @@ These are the results of the benchmarking of different models. All the models ar
 | Googlenet                |  181.84   |   174.87    |  250.09  |  138.03  |    33.47 |
 | **Googlenet - OPTIMIZED**    |   97.06   |    96.67    |  100.69  |  96.43   |     1.21 |
 
-This is the result of testing Resnet 50 from different frameworks (_onyx_ and _keras_):
+This is the result of testing the same architectures from different frameworks (_onyx_ and _keras_):
 
-| Model                         | Mean (ms) | Median (ms) | Max (ms) | Min (ms) | Std (ms) |
-|:------------------------------|:---------:|:-----------:|:--------:|:--------:|---------:|
-| Resnet 50 (.onnx)             |  325.95   |   324.57    |  335.16  |  323.23  |     3.33 |
-| Resnet 50 (.onnx) - OPTIMIZED |  227.69   |   227.54    |  230.20  |  226.96  |     0.88 |
-| Resnet 50 (keras)             |  766.67   |   759.07    |  905.66  |  617.21  |    82.22 |
-| Resnet 50 (keras) - OPTIMIZED |  183.82   |   177.07    |  215.32  |  174.26  |    13.20 |
+| Model                             | Mean (ms) | Median (ms) | Max (ms) | Min (ms) | Std (ms) |
+|:----------------------------------|:---------:|:-----------:|:--------:|:--------:|---------:|
+| **Resnet 50 (.onnx)**             |  325.95   |   324.57    |  335.16  |  323.23  |     3.33 |
+| Resnet 50 (keras)                 |  766.67   |   759.07    |  905.66  |  617.21  |    82.22 |
+| Resnet 50 (.onnx) - OPTIMIZED     |  227.69   |   227.54    |  230.20  |  226.96  |     0.88 |
+| **Resnet 50 (keras) - OPTIMIZED** |  183.82   |   177.07    |  215.32  |  174.26  |    13.20 |
+| Resnet 101 (.onnx)                |  655.36   |   648.70    |  692.52  |  639.17  |    17.73 |
+| Resnet 101 (keras)                |  1162.80  |   1134.69   | 1369.72  | 1117.23  |    76.80 |
+| Resnet 101 (.onnx) - OPTIMIZED    |  467.00   |   464.49    |  488.38  |  459.98  |     8.49 |
+| Resnet 101 (keras) - OPTIMIZED    |  345.14   |   324.47    |  414.91  |  319.08  |    36.30 |
 
-What emerges from this test is that the keras version at the beginning is slower once loaded in TVM. However it is then 
-able to reach a better optimized version since it becomes faster after the optimization. 
+What emerges from this test is that, in terms of mean time of execution, the keras version at the beginning is slower 
+once loaded in TVM. However it is then able to reach a better optimized version since it becomes faster after the 
+optimization. On the other hand, the .onnx versions has always a lower standard deviation, both before and after the
+optimization. 
 It can be interesting to simulate other experiments and see if this trend is followed also by the other models.
