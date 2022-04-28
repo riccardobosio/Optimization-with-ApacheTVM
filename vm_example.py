@@ -10,7 +10,7 @@ try:
 except ImportError:
     tf_compat_v1 = tf
 
-model_path = "models/model_segm_v7.1_512.pb"
+model_path = <PATH_TO_PB_FILE>
 
 x = np.random.uniform(0.0, 255.0, size=(1, 512, 512, 3)).astype('float32')
 
@@ -37,11 +37,11 @@ with tvm.transform.PassContext(opt_level=3):
 vm = VirtualMachine(vm_exec, device=dev)
 
 #DEBUG
-func_params = vm._exec.get_function_params("main")
-print(func_params)
-var = bool()
-print(f"The value of bool() is {var}")
-print(f"The type of bool() is {type(var)}")
+#func_params = vm._exec.get_function_params("main")
+#print(func_params)
+#var = bool()
+#print(f"The value of bool() is {var}")
+#print(f"The type of bool() is {type(var)}")
 
 #EXECUTION
 #1st method
