@@ -66,6 +66,10 @@ You can use _LP_autoTVM.py_ to optimize a model and compare the optimized/unopti
 You only need to insert the path to the .pb of the model and the path to a test image. Pay attention to preprocess the 
 image in the correct way. Remember that the performances are on the TVM runtime!
 
+In _tf_example.py_ you can find how to use tvmc api in order to tune a model (from Protobuf).
+
+In _tf_performances_ you can see how to compare the TF runtime with the TVM one.
+
 ## Results
 
 These are the results of the benchmarking of different models. All the models are pretrained _.onnx_ versions.
