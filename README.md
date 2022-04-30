@@ -99,10 +99,10 @@ This is the result of testing the same architectures from different frameworks (
 | Resnet 50 (keras)                 |  766.67   |   759.07    |  905.66  |  617.21  |    82.22 |
 | Resnet 50 (.onnx) - OPTIMIZED     |  227.69   |   227.54    |  230.20  |  226.96  |     0.88 |
 | **Resnet 50 (keras) - OPTIMIZED** |  183.82   |   177.07    |  215.32  |  174.26  |    13.20 |
-| Resnet 101 (.onnx)                |  655.36   |   648.70    |  692.52  |  639.17  |    17.73 |
+| **Resnet 101 (.onnx)**                |  655.36   |   648.70    |  692.52  |  639.17  |    17.73 |
 | Resnet 101 (keras)                |  1162.80  |   1134.69   | 1369.72  | 1117.23  |    76.80 |
 | Resnet 101 (.onnx) - OPTIMIZED    |  467.00   |   464.49    |  488.38  |  459.98  |     8.49 |
-| Resnet 101 (keras) - OPTIMIZED    |  345.14   |   324.47    |  414.91  |  319.08  |    36.30 |
+| **Resnet 101 (keras) - OPTIMIZED**    |  345.14   |   324.47    |  414.91  |  319.08  |    36.30 |
 
 What emerges from this test is that, in terms of mean time of execution, the keras version at the beginning is slower 
 once loaded in TVM. However it is then able to reach a better optimized version since it becomes faster after the 
